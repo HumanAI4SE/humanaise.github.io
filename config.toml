@@ -1,0 +1,11 @@
+baseURL = "https://humanai4se.github.io/"
+languageCode = "en-us"
+title = "Conference Website"
+theme = "hugo-conference"
+
+[params]
+  Name = "Human-Centered AI for Software Engineering"
+  Description = "Join us for an exciting conference about Human-AI synergy!"
+  Sections = ["speakers", "schedule", "venue", "partners", "contact"]
+  address = "123 Conference Street, Conference City"
+  HeaderSubtitle = "Making your dream come true"

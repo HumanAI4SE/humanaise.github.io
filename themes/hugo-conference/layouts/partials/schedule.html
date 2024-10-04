@@ -1,0 +1,17 @@
+<section id="schedule" class="section">
+  <div class="container">
+    <h2 class="section-title">Schedule</h2>
+    <ul class="schedule-list">
+      {{ if .Site.Data.schedule }}
+        {{ range .Site.Data.schedule }}
+          <li class="schedule-item">
+            <h3>{{ .time }} - {{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </li>
+        {{ end }}
+      {{ else }}
+        <p>Schedule will be updated soon.</p>
+      {{ end }}
+    </ul>
+  </div>
+</section>

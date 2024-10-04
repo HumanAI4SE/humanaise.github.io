@@ -1,0 +1,51 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/Event">
+<head>
+  <title itemprop="name">{{ .Site.Params.Name | default .Site.Title }}</title>
+
+  <meta charset="utf-8">
+  <meta name="author" content="{{ .Site.Params.Name | default .Site.Title }}" />
+  <meta name="description" content="{{ .Site.Params.Description | default .Site.Params.Name }}">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+</head>
+<body>
+  <div class="global">
+
+    {{ partial "nav.html" . }}
+    {{ partial "header.html" .Site.Params }}
+
+    <div class="content" id="content">
+      <div class="wrapper">
+        {{ if .Site.Params.Sections }}
+          {{ range $section := .Site.Params.Sections }}
+            <section class="{{ $section }}" id="{{ $section }}">
+              {{ partial $section $.Site.Params }}
+            </section>
+          {{ end }}
+        {{ else }}
+          <section id="default">
+            <h2>Welcome to the Conference Website</h2>
+            <p>This is a placeholder for your content sections. Add content to display here.</p>
+          </section>
+        {{ end }}
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with ♥ by <a href="https://github.com/braziljs/conf-boilerplate" target="_blank">Conf Boilerplate</a> :)</p>
+    </footer>
+  </div>
+
+  <script>window.jQuery || document.write('<script src="/js/jquery.js"><\/script>')</script>
+</body>
+</html>

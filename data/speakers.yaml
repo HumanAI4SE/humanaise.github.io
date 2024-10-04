@@ -1,0 +1,6 @@
+- name: "Dr. Jane Doe"
+  bio: "Expert in AI and machine learning with over 20 years of experience."
+  photo: "/img/speakers/jane_doe.jpg"
+- name: "John Smith"
+  bio: "CEO of TechCorp, specializing in cloud computing."
+  photo: "/img/speakers/john_smith.jpg"

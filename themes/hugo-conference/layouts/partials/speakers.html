@@ -1,0 +1,18 @@
+<section id="speakers" class="section">
+  <div class="container">
+    <h2 class="section-title">Speakers</h2>
+    <ul class="speakers-list">
+      {{ if .Site.Data.speakers }}
+        {{ range .Site.Data.speakers }}
+          <li class="speakers-item">
+            <img src="{{ .photo }}" alt="{{ .name }}" class="speakers-photo">
+            <h3>{{ .name }}</h3>
+            <p>{{ .bio }}</p>
+          </li>
+        {{ end }}
+      {{ else }}
+        <p>No speakers available at this time.</p>
+      {{ end }}
+    </ul>
+  </div>
+</section>

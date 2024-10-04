@@ -9,7 +9,17 @@
     <h1 class="logo-name">
       <a class="logo-link" href="#" title="{{ .name }}" itemprop="name">{{ .name }}</a>
     </h1>
-    <h2 class="tagline">{{ .date }}, {{ .venue }}, {{ .city }}</h2>
+
+    <!-- Check if all fields are defined before rendering -->
+    {{ if and (.date) (.venue) (.city) }}
+      <h2 class="tagline">{{ .date }}, {{ .venue }}, {{ .city }}</h2>
+    {{ else if or (.date) (.venue) (.city) }}
+      <h2 class="tagline">
+        {{ if .date }}{{ .date }}{{ end }}
+        {{ if .venue }}{{ if .date }}, {{ end }}{{ .venue }}{{ end }}
+        {{ if .city }}{{ if or .date .venue }}, {{ end }}{{ .city }}{{ end }}
+      </h2>
+    {{ end }}
 
     <div class="call-action-area">
       {{ with .price }}
